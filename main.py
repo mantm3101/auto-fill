@@ -5,8 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import random
+import platform
 
-PATH = "./chromedriver"
+PATH = ""
+if platform.system() == 'Windows':
+    PATH = './chromedriver_win32/chromedriver.exe'
+else:
+    PATH = './chromedriver_linux64/chromedriver'
+
 SLEEP_SECONDS = 10
 DRIVER = webdriver.Chrome(PATH)
 WAIT = WebDriverWait(DRIVER, SLEEP_SECONDS)
