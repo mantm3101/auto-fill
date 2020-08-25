@@ -1,7 +1,4 @@
 # Download zip
 
-# Place file in G:\auto-fill-master
-
-# Open Cmder, go to directory G:\auto-fill-master, then type command:
-
-# - python main.py
+1. Place file in `G:\auto-fill-master`
+2. Run main.py file
