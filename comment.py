@@ -20,7 +20,7 @@ comment_list = (
     'Quán nóng',
     'Rất tốt',
     'Ổn',
-    'Nhân viên tận tình'
+    'Nhân viên tận tình',
     'Nên giảm đồ nhựa',
     'Cafe mới rất ngon',
     'Phindi ngon',
