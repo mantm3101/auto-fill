@@ -1,11 +1,13 @@
+import platform
+import random
+import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-import time
-import random
-import platform
+import comment
+import customer
 
 PATH = ""
 if platform.system() == 'Windows':
@@ -155,7 +157,8 @@ def step3():
         time.sleep(SLEEP_SECONDS)
         txtName = WAIT.until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, ".form-control.text")))
-        txtName.send_keys("Hello")
+        txtName.clear()
+        txtName.send_keys(customer.random_customer())
         txtDatetime = DRIVER.find_element_by_css_selector(
             ".form-control.date_time")
         txtDatetime.clear()
