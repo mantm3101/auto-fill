@@ -1,6 +1,7 @@
 import platform
 import random
 import time
+import rtime
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -21,17 +22,19 @@ WAIT = WebDriverWait(DRIVER, SLEEP_SECONDS)
 
 
 def main():
-    DRIVER.get("https://fb.highlandscoffee.com.vn/")
-    step1()
-    step2()
-    step3()
-    step4()
-    step5()
-    step6()
-    step7()
-    step8()
-    step9()
-    step10()
+    for x in range(2):
+        DRIVER.get("https://fb.highlandscoffee.com.vn/")
+        step1()
+        step2()
+        step3()
+        step4()
+        step5()
+        step6()
+        step7()
+        step8()
+        step9()
+        step10()
+        step11()
 
 
 def step1():
@@ -69,7 +72,7 @@ def step3():
         txtDatetime = DRIVER.find_element_by_css_selector(
             ".form-control.date_time")
         txtDatetime.clear()
-        txtDatetime.send_keys("20/03/2020 16:00")
+        txtDatetime.send_keys(rtime.random_time())
         DRIVER.find_element_by_css_selector("#fm_survey button").click()
     except:
         print("step3 error, retry step3")
@@ -179,9 +182,22 @@ def step10():
             (By.CSS_SELECTOR, ".form-control.text")))
         answer_box.clear()
         answer_box.send_keys(comment.random_comment())
+        DRIVER.find_element_by_css_selector("#fm_survey button").click()
     except:
         print("step10 error, retry step10")
         step10()
+
+
+def step11():
+    # 11 /
+    try:
+        time.sleep(SLEEP_SECONDS)
+        answer_box = WAIT.until(EC.element_to_be_clickable(
+            (By.CSS_SELECTOR, ".form-control.text")))
+        DRIVER.find_element_by_css_selector("#fm_survey button").click()
+    except:
+        print("step11 error, retry step11")
+        step11()
 
 
 main()
